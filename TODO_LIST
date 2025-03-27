@@ -10,3 +10,13 @@ TODO:
 - Spillere kan skyte 
 - Spillere kan få poeng
 - Resette posisjon dersom en spiller blir truffet
+
+
+KLASSER:
+
+drawObjects()
+movement()
+kontroller()
+gravitasjon()
+kollisjon()
+
