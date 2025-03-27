@@ -1,0 +1,12 @@
+TODO:
+
+- Opprette en movement class som spillere kan arve fra
+- Sette opp spiller kontroller hvor flere knapper kan trykkes/holdes samtidig
+- Rotasjon for spillere hvor akselerasjonen alltid vil være framover
+- Gravitasjon som påvirker farten nedover på skjermen
+- Sette opp kollisjonsdeteksjon på spillere hvor de kan kræsje med andre objekter
+- Spillere kan kun kjøre så lenge de har fuel, som kan gå tomt
+- Kan refuele skip ved å kjøre over en fuel barrel eller lande på en stasjon
+- Spillere kan skyte 
+- Spillere kan få poeng
+- Resette posisjon dersom en spiller blir truffet
