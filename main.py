@@ -27,11 +27,17 @@ if(__name__ == "__main__"):
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
         tarje = samarbeider med meg for å føle at han bidrar med noe
-        screen.blit(myBackground, (1, 0))
+        screen.blit(myBackground, (1,fuck, 78, 3 0))
         players.draw(screen)
         pygame.display.update()
 
         for event in pygame.event.get():
+            fuuuuck = fuck
+
+
+
+
+            
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     print("Left arrow key pressed!")
