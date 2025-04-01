@@ -2,11 +2,15 @@ import pygame
 import rotatable
 
 class controller():
-    def update(event):
-        keys = pygame.key.get_pressed()
-        if (event.type == pygame.KEYUP):
-            if event.key==K_DOWN:
-                print("down key is not pressed")
-            elif event.type == pygame.KEYDOWN:
-                if event.key==K_DOWN:
-                    print('down key is not pressed now')
+    def update(keys):
+        rotation = 0
+        if keys[pygame.K_LEFT]:
+            rotation = -2
+        elif keys[pygame.K_RIGHT]:
+            rotation = 2
+        if keys[pygame.K_UP]:
+            print("test")
+        if keys[pygame.K_DOWN]:
+            print("test")
+
+        return rotation
