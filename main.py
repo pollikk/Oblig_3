@@ -18,7 +18,8 @@ prev_frame = time.time()
 SCREEN_X = 1024
 SCREEN_Y = 768
 
-PLAYER_SPAWN = 350, 200
+PLAYER_ONE_SPAWN = 350, 200
+PLAYER_TWO_SPAWN = 380, 200
 PLAYER_SIZE = (45, 45)
 
 PLAYER_TWO_IMG = "images/Triangle.png"
@@ -33,14 +34,23 @@ screen = pygame.display.set_mode((SCREEN_X, SCREEN_Y))
 myBackground = pygame.image.load(BACKGROUND_IMG)
 
 if(__name__ == "__main__"):
-    playerOne = ship(PLAYER_ONE_IMG, PLAYER_SPAWN, PLAYER_SIZE, STARTING_ANGLE)
+    playerOne = ship(PLAYER_ONE_IMG, PLAYER_ONE_SPAWN, PLAYER_SIZE, STARTING_ANGLE)
+    playerTwo = ship(PLAYER_TWO_IMG, PLAYER_TWO_SPAWN, PLAYER_SIZE, STARTING_ANGLE)
     players = pygame.sprite.Group()
     players.add(playerOne)
+    players.add(playerTwo)
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
         # Limit the framerate
         clock.tick(TARGET_FPS)
+
+        point = pygame.mouse.get_pos()
         
+        collide = playerOne.rect.collidepoint(point)
+        if(collide):
+            print("colliding")
+
+
         screen.blit(myBackground, (0, 1))
         players.draw(screen)
         pygame.display.update()
