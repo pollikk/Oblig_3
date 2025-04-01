@@ -32,7 +32,7 @@ if(__name__ == "__main__"):
         pygame.display.update()
 
 
-
+        Her er en endring fra tarje
 
 
         for event in pygame.event.get():
