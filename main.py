@@ -28,17 +28,17 @@ if(__name__ == "__main__"):
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
 
-
-
-
-
-
-
-
-
-
-
-        
+        Here are the new changes from rebase
+        -
+sdas
+ 123 
+4 34
+34 34
+3
+4 34 
+34
+ 3 434 
+       34  
         screen.blit(myBackground, (0, 2))
         players.draw(screen)
         pygame.display.update()
