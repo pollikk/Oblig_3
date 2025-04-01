@@ -27,19 +27,7 @@ if(__name__ == "__main__"):
     players.add(playerOne)
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
-        Dette er ting tristan har gjort!
-
-
-
-
-
-
-
-
-
-
-        
-        screen.blit(myBackground, (0, 2))
+        screen.blit(myBackground, (0, 1))
         players.draw(screen)
         pygame.display.update()
 
