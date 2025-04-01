@@ -29,7 +29,6 @@ if(__name__ == "__main__"):
         screen.blit(myBackground, (0, 0))
         players.draw(screen)
         pygame.display.update()
-        # playerOne.rotate(-1)
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
