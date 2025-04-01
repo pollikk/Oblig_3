@@ -31,16 +31,13 @@ if(__name__ == "__main__"):
         screen.blit(myBackground, (0, 0))
         players.draw(screen)
         pygame.display.update()
+        keys = pygame.key.get_pressed()
+        rotation_delta = controller.update(keys) 
+        playerOne.angle += rotation_delta        
+        playerOne.rotate(rotation_delta)   
 
         for event in pygame.event.get():
-            controller.update(event)
-
-            # if event.type == pygame.KEYDOWN:
-            #     if event.key == pygame.K_LEFT:
-            #         print("Left arrow key pressed!")
-            #         playerOne.rotate(-1)
             if event.type == pygame.QUIT:
-
                 game_running = False
 
 pygame.quit()
