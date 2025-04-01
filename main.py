@@ -1,8 +1,19 @@
 
+import pygame
+import time
 from testing_object import ship
 from player_controller import controller
-import pygame
 from pygame import Vector2
+
+# Justering av hastighet og fps, skal flyttes til config #
+SPEED = 10
+TARGET_FPS = 60
+clock = pygame.time.Clock()
+prev_frame = time.time()
+
+
+#--------------------------------------------------------#
+
 
 SCREEN_X = 1024
 SCREEN_Y = 768
@@ -27,6 +38,17 @@ if(__name__ == "__main__"):
     players.add(playerOne)
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
+        # Limit the framerate
+        clock.tick(TARGET_FPS)
+
+        # Calculate delta time
+        this_frame = time.time()
+        dt = this_frame - prev_frame
+        prev_frame = this_frame
+
+        
+
+
         screen.blit(myBackground, (0, 1))
         players.draw(screen)
         pygame.display.update()
