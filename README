@@ -1,4 +1,22 @@
 
-DRAWOBJECTS:
+--------------------------- DRAWOBJECTS ---------------------------
 The object that will be drawn will be a child of the sprite.Sprite class which has a group functionality.
 The sprite.group method has a draw function which is used for drawing objects onto the screen.
+recipe: 
+        # ------- RECIPE FOR MAKING A OBJECT, GROUPING IT, AND DRAWING TO SCREEN ----------- #
+        playerOne = ship(PLAYER_ONE_IMG, PLAYER_SPAWN, PLAYER_SIZE, TEST_ANGLE)
+        players = pygame.sprite.Group()
+        players.add(playerOne)
+        players.draw(screen)
+        # ------- END OF RECIPE ----------- #
+
+--------------------------- ROTATION: ---------------------------
+All objects that is going to be rotatable has to inherit from the rotatable class. When using the rotate function the classes rotate method will be used with an angle that its going to rotate towards. for example:
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    print("Left arrow key pressed!")
+                    playerOne.rotate(-1)
+
+This rotates the object by -1 every time the left key button is pressed.
+The rotation does not work perfectly as it is, but is a start. The rotation does not maintain the true center of the image when it rotates which makes it look abnormal.
