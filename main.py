@@ -1,5 +1,6 @@
 
 from testing_object import ship
+from player_controller import controller
 import pygame
 from pygame import Vector2
 
@@ -31,10 +32,12 @@ if(__name__ == "__main__"):
         pygame.display.update()
 
         for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    print("Left arrow key pressed!")
-                    playerOne.rotate(-1)
+            controller.update(event)
+
+            # if event.type == pygame.KEYDOWN:
+            #     if event.key == pygame.K_LEFT:
+            #         print("Left arrow key pressed!")
+            #         playerOne.rotate(-1)
             if event.type == pygame.QUIT:
 
                 game_running = False
