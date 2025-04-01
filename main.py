@@ -31,6 +31,10 @@ if(__name__ == "__main__"):
         players.draw(screen)
         pygame.display.update()
 
+
+
+
+
         for event in pygame.event.get():
             controller.update(event)
 
