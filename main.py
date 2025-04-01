@@ -39,7 +39,7 @@ if(__name__ == "__main__"):
 
 
         
-        screen.blit(myBackground, (0, 0))
+        screen.blit(myBackground, (0, 2))
         players.draw(screen)
         pygame.display.update()
 
