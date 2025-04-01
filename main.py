@@ -27,6 +27,18 @@ if(__name__ == "__main__"):
     players.add(playerOne)
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
+
+
+
+
+
+
+
+
+
+
+
+        
         screen.blit(myBackground, (0, 0))
         players.draw(screen)
         pygame.display.update()
