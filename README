@@ -1,0 +1,4 @@
+
+DRAWOBJECTS:
+The object that will be drawn will be a child of the sprite.Sprite class which has a group functionality.
+The sprite.group method has a draw function which is used for drawing objects onto the screen.
