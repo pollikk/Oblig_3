@@ -14,7 +14,7 @@ PLAYER_ONE_IMG = "images/Triangle_red.png"
 BACKGROUND_IMG = "images/green_background.png"
 
 STARTING_ANGLE = 0 
-
+ 
 pygame.init()
 game_running = True
 screen = pygame.display.set_mode((SCREEN_X, SCREEN_Y))
@@ -26,6 +26,7 @@ if(__name__ == "__main__"):
     players.add(playerOne)
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
+        tarje = samarbeider med meg for å føle at han bidrar med noe
         screen.blit(myBackground, (0, 0))
         players.draw(screen)
         pygame.display.update()
