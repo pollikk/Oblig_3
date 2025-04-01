@@ -27,7 +27,7 @@ if(__name__ == "__main__"):
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
         tarje = samarbeider med meg for å føle at han bidrar med noe
-        screen.blit(myBackground, (0, ræva, 0))
+        screen.blit(myBackground, (1, 0))
         players.draw(screen)
         pygame.display.update()
 
