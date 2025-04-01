@@ -30,11 +30,6 @@ if(__name__ == "__main__"):
         screen.blit(myBackground, (0, 1))
         players.draw(screen)
         pygame.display.update()
-
-
-        Her er en endring fra tarje
-
-
         for event in pygame.event.get():
             controller.update(event)
 
