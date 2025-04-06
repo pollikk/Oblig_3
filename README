@@ -20,3 +20,12 @@ All objects that is going to be rotatable has to inherit from the rotatable clas
 
 This rotates the object by -1 every time the left key button is pressed.
 The rotation does not work perfectly as it is, but is a start. The rotation does not maintain the true center of the image when it rotates which makes it look abnormal.
+
+--------------------------- COLLISION: ---------------------------
+The object that will be checked for collision will be used as follows: first a collision checker object will be initialized with the 
+collision class. This will take in the position of the main object. Then when the object is going to be checked if its colliding the 
+checkCollision class is called to check if the two objects are colliding. This will return true on collision and false if not.
+
+            main_object_collision = collision(main_object_collision.position)
+            if main_object_collision.checkCollision(incoming_object.rect):
+                print("colliding")

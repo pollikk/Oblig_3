@@ -1,5 +1,4 @@
 import pygame
-import rotatable
 
 class controller():
     def update(keys):
