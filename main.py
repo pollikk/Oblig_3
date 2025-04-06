@@ -3,6 +3,7 @@ import pygame
 import time
 from testing_object import ship
 from player_controller import controller
+from collision_detection import collision
 from pygame import Vector2
 
 # Justering av hastighet og fps, skal flyttes til config #
@@ -44,11 +45,6 @@ if(__name__ == "__main__"):
         # Limit the framerate
         clock.tick(TARGET_FPS)
 
-        point = pygame.mouse.get_pos()
-        
-        collide = playerOne.rect.collidepoint(point)
-        if(collide):
-            print("colliding")
 
 
         screen.blit(myBackground, (0, 1))

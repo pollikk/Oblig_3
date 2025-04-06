@@ -1,7 +1,8 @@
 import pygame
 
 class collision():
-    def __init__(self, position, object):
+    def __init__(self, position):
         self.position = position
-        collide = object.collidepoint(position)
-        return collide
+    
+    def checkCollision(self, incommingObject):
+        return incommingObject.collidepoint(self.position)
