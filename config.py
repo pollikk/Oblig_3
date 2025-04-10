@@ -1,5 +1,3 @@
-import time
-
 SCREEN_X = 1024
 SCREEN_Y = 768
 
