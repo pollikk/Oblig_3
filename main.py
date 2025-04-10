@@ -2,6 +2,7 @@
 import pygame
 import time
 
+
 import config
 
 from testing_object import Ship
@@ -81,6 +82,7 @@ if(__name__ == "__main__"):
         clamp_to_screen(playerTwo)
         # Limit the framerate
 
+
         clock.tick(config.TARGET_FPS)
         # Calculate delta time
         this_frame = time.time()
@@ -91,6 +93,7 @@ if(__name__ == "__main__"):
         previous_rect_center_playerOne = playerOne.rect.center
         previous_position_playerTwo = playerTwo.position
         previous_rect_center_playerTwo = playerTwo.rect.center
+
 
 
 
@@ -134,6 +137,7 @@ if(__name__ == "__main__"):
                 bullet.kill()
                 PLAYER_ONE_SCORE = PLAYER_ONE_SCORE +1
 
+
             for obstacle in obstaclesGroup:
                 if obstacle.col.checkCollision(bullet.rect):
                     bullet.kill()
@@ -172,16 +176,23 @@ if(__name__ == "__main__"):
         player_one_shooting.draw(screen)
         player_two_shooting.draw(screen)
         players.draw(screen)
+
         obstaclesGroup.draw(screen)
         # pygame.draw.rect(screen, (0, 255, 0), playerTwo.collision_rect, 2)
+
         score_text_playerOne = font.render(f"Player One Score: {PLAYER_ONE_SCORE}", True, (255, 255, 255))
         score_text_playerTwo = font.render(f"Player Two Score: {PLAYER_TWO_SCORE}", True, (255, 255, 255))
         screen.blit(score_text_playerOne, (10, 10))
         screen.blit(score_text_playerTwo, (750, 10))
-        # pygame.draw.rect(screen, (0, 255, 0), playerTwo.rect, 2)
+
+
+        fuel_text_playerOne = font.render(f"Player One Fuel: {playerOne.fuel/10}", True, (255, 255, 255))
+        fuel_text_playerTwo = font.render(f"Player Two Fuel: {playerTwo.fuel/10}", True, (255, 255, 255))
+        screen.blit(fuel_text_playerOne, (10, 40))
+        screen.blit(fuel_text_playerTwo, (750, 40))
+
+        pygame.draw.rect(screen, (0, 255, 0), playerTwo.rect, 2)
         pygame.display.update()
-
-
 
         players.update()
 
