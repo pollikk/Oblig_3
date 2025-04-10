@@ -10,7 +10,6 @@ class controller():
             rotation = -2
         if keys[up]:
             thrust = True
-            print("test")
         if keys[down]:
             print("test")
 

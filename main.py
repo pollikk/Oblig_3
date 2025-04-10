@@ -62,8 +62,10 @@ if(__name__ == "__main__"):
         playerTwo.rotate(rotation_player_two)
         
         rotation_player_one ,_ = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
+        _, thrust_player_one = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
         playerOne.angle += rotation_player_one        
         playerOne.rotate(rotation_player_one)
+        print("thrust = ", thrust_player_one)
         if keys[pygame.K_RETURN]:
             player_one_shooting.fire(playerOne.position, playerOne.angle)
 
