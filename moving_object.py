@@ -1,6 +1,6 @@
 import pygame
 import random
-from config import GRAVITY, STARTING_ANGLE, SPEED, SCREEN_X, SCREEN_Y
+from config import GRAVITY, STARTING_ANGLE, SCREEN_X, SCREEN_Y
 from pygame.math import Vector2
 
 # All moving objects
@@ -13,12 +13,7 @@ class Moving_object(pygame.sprite.Sprite):
         self.velocity = Vector2(0, 0)
         self.gravity = Vector2(0, GRAVITY)
 
-    def update(self, dt):
-        moving_direction = Vector2(0, -1).rotate(-self.angle)
-        moving_speed = SPEED
-        self.velocity += moving_direction * moving_speed * dt
-        self.position += self.velocity * dt
-        self.rect.center = self.position
+    
 
 
 
