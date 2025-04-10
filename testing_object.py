@@ -2,7 +2,7 @@ import pygame
 from pygame import Vector2
 from rotatable import Rotatable
 from moving_object import Moving_object
-from config import PLAYER_SIZE, SPEED
+from config import PLAYER_SIZE, SPEED, GRAVITATION
 
 class Ship(Rotatable, Moving_object):
     def __init__(self, image, position):
@@ -13,6 +13,7 @@ class Ship(Rotatable, Moving_object):
         self.image = self.original_image
         self.rect = self.image.get_rect(center=self.position)
         self.thrust_engaged = False
+        self.gravity = Vector2(0, GRAVITATION)
         self.friction = 0.96
 
     def update(self, dt):
@@ -21,7 +22,9 @@ class Ship(Rotatable, Moving_object):
             moving_speed = SPEED
             self.velocity += moving_direction * moving_speed * dt
         else:
-            self.velocity = self.velocity * self.friction
+            self.velocity *= (self.friction ** dt)
+
+        self.velocity += self.gravity * dt
 
         self.position += self.velocity * dt
         self.rect.center = self.position

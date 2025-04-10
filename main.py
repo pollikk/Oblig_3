@@ -1,7 +1,7 @@
 
 import pygame
 import time
-from config import SCREEN_X, SCREEN_Y, PLAYER_SIZE, GRAVITY, STARTING_ANGLE, SPEED, TARGET_FPS, PLAYER_ONE_POSITION, PLAYER_TWO_POSITION
+from config import SCREEN_X, SCREEN_Y, TARGET_FPS, PLAYER_ONE_POSITION, PLAYER_TWO_POSITION
 from testing_object import Ship
 from player_controller import controller
 from collision_detection import collision
@@ -58,16 +58,16 @@ if(__name__ == "__main__"):
         playerTwo.thrust_engaged = thrust_player_two
 
 
-        playerTwo.angle += rotation_player_two       
-        playerTwo.rotate(rotation_player_two)
+        playerTwo.angle += rotation_player_two * dt       
+        playerTwo.rotate(rotation_player_two * dt)
         
         rotation_player_one ,_ = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
         _, thrust_player_one = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
         print("thrust = ", thrust_player_one)
         playerOne.thrust_engaged = thrust_player_one
 
-        playerOne.angle += rotation_player_one        
-        playerOne.rotate(rotation_player_one)
+        playerOne.angle += rotation_player_one * dt       
+        playerOne.rotate(rotation_player_one * dt)
 
         if keys[pygame.K_RETURN]:
             player_one_shooting.fire(playerOne.position, playerOne.angle)
