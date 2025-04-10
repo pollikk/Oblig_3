@@ -21,8 +21,8 @@ SCREEN_X = 1024
 SCREEN_Y = 768
 
 PLAYER_ONE_SPAWN = 350, 200
-PLAYER_TWO_SPAWN = 380, 200
-PLAYER_SIZE = (45, 45)
+PLAYER_TWO_SPAWN = 800, 200
+PLAYER_SIZE = (75, 75)
 
 PLAYER_TWO_IMG = "images/Triangle.png"
 PLAYER_ONE_IMG = "images/Triangle_red.png"
@@ -51,15 +51,22 @@ if(__name__ == "__main__"):
         rotation_delta = controller.update(keys) 
         playerOne.angle += rotation_delta        
         playerOne.rotate(rotation_delta)
-
         if keys[pygame.K_SPACE]:
             player_shooting.fire(playerOne.position, playerOne.angle)
 
         player_shooting.update()
+        print(player_shooting.bullets)
+
+        playerTwoCol = collision(playerTwo.rect)
+        for bullet in player_shooting.bullets:
+            if playerTwoCol.checkCollision(bullet.rect):
+                bullet.kill()
+
 
         screen.blit(myBackground, (0, 1))
         player_shooting.draw(screen)
         players.draw(screen)
+        pygame.draw.rect(screen, (0, 255, 0), playerTwo.rect, 2)
         pygame.display.update()
 
         keys = pygame.key.get_pressed()
