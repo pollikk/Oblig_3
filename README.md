@@ -58,8 +58,12 @@ increment the scorescreen with playerone or playertwo with the given recipe. sco
         PLAYER_ONE_SCORE = PLAYER_ONE_SCORE +1
         # ------- END OF RECIPE ----------- #
 
-
-
+--------------------------- OBSTACLES: ---------------------------
+Make an obstacle by adding the configurations in the config file and then calling the obstacles class to make the object
+        # ------- RECIPE FOR MAKING OBSTACLES ----------- #
+    obstacle_one = obstacles(*config.obstacleOne_X_Y, *config.obstacleOne_size, *config.obstacleOne_rgb)
+    obstaclesGroup.add(obstacle_one)
+        # ------- END OF RECIPE ----------- #
 
 
 ```
