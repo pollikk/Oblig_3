@@ -19,7 +19,7 @@ prev_frame = time.time()
 PLAYER_ONE_SCORE = 0
 PLAYER_TWO_SCORE = 0
 
-
+OBSTACLE_RECT = pygame.Rect(400, 300, 100, 500)
 
 PLAYER_TWO_IMG = "images/Triangle.png"
 PLAYER_ONE_IMG = "images/Triangle_red.png"
@@ -49,12 +49,10 @@ if(__name__ == "__main__"):
         this_frame = time.time()
         dt = this_frame - prev_frame
         prev_frame = this_frame
-
         keys = pygame.key.get_pressed()
 
         rotation_player_two ,_ = controller.update(keys,pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s) 
         _, thrust_player_two = controller.update(keys,pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s) 
-        print("thrust = ", thrust_player_two)
 
         playerTwo.angle += rotation_player_two       
         playerTwo.rotate(rotation_player_two)
@@ -63,7 +61,6 @@ if(__name__ == "__main__"):
         _, thrust_player_one = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
         playerOne.angle += rotation_player_one        
         playerOne.rotate(rotation_player_one)
-        print("thrust = ", thrust_player_one)
         if keys[pygame.K_RETURN]:
             player_one_shooting.fire(playerOne.position, playerOne.angle)
 
@@ -79,6 +76,9 @@ if(__name__ == "__main__"):
             if playerTwoCol.checkCollision(bullet.rect):
                 bullet.kill()
                 PLAYER_ONE_SCORE = PLAYER_ONE_SCORE +1
+        
+        if(playerTwoCol.checkCollision(OBSTACLE_RECT)):
+            print("colliding with obstacle")
 
         playerOneCol = collision(playerOne.rect)
         for bullet in player_two_shooting.bullets:
@@ -91,6 +91,7 @@ if(__name__ == "__main__"):
         player_one_shooting.draw(screen)
         player_two_shooting.draw(screen)
         players.draw(screen)
+        pygame.draw.rect(screen, (139, 100, 19), OBSTACLE_RECT)
         score_text_playerOne = font.render(f"Player One Score: {PLAYER_ONE_SCORE}", True, (255, 255, 255))
         score_text_playerTwo = font.render(f"Player Two Score: {PLAYER_TWO_SCORE}", True, (255, 255, 255))
         screen.blit(score_text_playerOne, (10, 10))
