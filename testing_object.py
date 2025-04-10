@@ -15,12 +15,14 @@ class Ship(Rotatable, Moving_object):
         self.thrust_engaged = False
         self.gravity = Vector2(0, GRAVITATION)
         self.friction = 0.96
+        self.fuel = 1000
 
     def update(self):
-        if self.thrust_engaged:
+        if self.thrust_engaged and self.fuel >= 0:
             moving_direction = Vector2(0, -1).rotate(-self.angle)
             moving_speed = SPEED
             self.velocity += moving_direction * moving_speed
+            self.fuel -= 1
         else:
             self.velocity *= self.friction
 

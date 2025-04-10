@@ -92,11 +92,20 @@ if(__name__ == "__main__"):
         player_one_shooting.draw(screen)
         player_two_shooting.draw(screen)
         players.draw(screen)
+
+
         pygame.draw.rect(screen, (139, 100, 19), OBSTACLE_RECT)
+
         score_text_playerOne = font.render(f"Player One Score: {PLAYER_ONE_SCORE}", True, (255, 255, 255))
         score_text_playerTwo = font.render(f"Player Two Score: {PLAYER_TWO_SCORE}", True, (255, 255, 255))
         screen.blit(score_text_playerOne, (10, 10))
         screen.blit(score_text_playerTwo, (750, 10))
+
+        fuel_text_playerOne = font.render(f"Player One Fuel: {playerOne.fuel/10}", True, (255, 255, 255))
+        fuel_text_playerTwo = font.render(f"Player Two Fuel: {playerTwo.fuel/10}", True, (255, 255, 255))
+        screen.blit(fuel_text_playerOne, (10, 40))
+        screen.blit(fuel_text_playerTwo, (750, 40))
+
         pygame.draw.rect(screen, (0, 255, 0), playerTwo.rect, 2)
         pygame.display.update()
 
