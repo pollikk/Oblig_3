@@ -1,7 +1,7 @@
 
 import pygame
 import time
-from config import SCREEN_X, SCREEN_Y, PLAYER_SIZE, GRAVITY, STARTING_ANGLE, SPEED, TARGET_FPS
+from config import SCREEN_X, SCREEN_Y, PLAYER_SIZE, GRAVITY, STARTING_ANGLE, SPEED, TARGET_FPS, PLAYER_ONE_POSITION, PLAYER_TWO_POSITION
 from testing_object import Ship
 from player_controller import controller
 from collision_detection import collision
@@ -33,8 +33,8 @@ screen = pygame.display.set_mode((SCREEN_X, SCREEN_Y))
 myBackground = pygame.image.load(BACKGROUND_IMG)
 
 if(__name__ == "__main__"):
-    playerOne = Ship(PLAYER_ONE_IMG, PLAYER_SIZE)
-    playerTwo = Ship(PLAYER_TWO_IMG, PLAYER_SIZE)
+    playerOne = Ship(PLAYER_ONE_IMG, PLAYER_ONE_POSITION)
+    playerTwo = Ship(PLAYER_TWO_IMG, PLAYER_TWO_POSITION)
     players = pygame.sprite.Group()
     players.add(playerOne)
     players.add(playerTwo)

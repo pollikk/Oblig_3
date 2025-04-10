@@ -9,5 +9,6 @@ class Ship(Rotatable, Moving_object):
         super().__init__()
         size = PLAYER_SIZE
         self.original_image = pygame.transform.scale(pygame.image.load(image).convert_alpha(), size)
+        self.position = position
         self.image = self.original_image
         self.rect = self.image.get_rect(center=self.position)
