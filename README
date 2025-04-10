@@ -29,3 +29,12 @@ checkCollision class is called to check if the two objects are colliding. This w
             main_object_collision = collision(main_object_collision.position)
             if main_object_collision.checkCollision(incoming_object.rect):
                 print("colliding")
+
+--------------------------- SHOOTING: ---------------------------
+Instantiates a bullet using the angle from the player object. Shoots a projectile known as bullet from the bullet class. Uses the sprite sprite
+class to group the bullets. can later be used with collision detection to check if a bullet collides with a player or obstacle.
+
+            if keys[pygame.K_SPACE]:
+                player_shooting.fire(playerOne.position, playerOne.angle)
+            player_shooting.update()
+
