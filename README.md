@@ -52,6 +52,13 @@ use allot of memory as the game gets bigger.
                     bullet.kill()
         # ------- END OF RECIPE ----------- #
 
+--------------------------- SCORESCREEN: ---------------------------
+increment the scorescreen with playerone or playertwo with the given recipe. score can be reset with setting the score back to 0
+        # ------- RECIPE FOR SCORE INCREMENT ----------- #
+        PLAYER_ONE_SCORE = PLAYER_ONE_SCORE +1
+        # ------- END OF RECIPE ----------- #
+
+
 
 
 
