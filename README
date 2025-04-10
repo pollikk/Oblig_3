@@ -26,7 +26,7 @@ The object that will be checked for collision will be used as follows: first a c
 collision class. This will take in the position of the main object. Then when the object is going to be checked if its colliding the 
 checkCollision class is called to check if the two objects are colliding. This will return true on collision and false if not.
 
-            main_object_collision = collision(main_object_collision.position)
+            main_object_collision = collision(main_object_collision.rect)
             if main_object_collision.checkCollision(incoming_object.rect):
                 print("colliding")
 
@@ -38,3 +38,12 @@ class to group the bullets. can later be used with collision detection to check 
                 player_shooting.fire(playerOne.position, playerOne.angle)
             player_shooting.update()
 
+--------------------------- HIT DETECTION: ---------------------------
+Hitting using playerTwo as a testobject. First makes a collision detection object. Then iterates through the bullets to check for 
+collision with playertwo. This has to be done for every object that is beign checked for collision. Bad way to do it as this will 
+use allot of memory as the game gets bigger.
+
+            playerTwoCol = collision(playerTwo.position)
+            for bullet in player_shooting.bullets:
+                if playerTwoCol.checkCollision(bullet.rect):
+                    bullet.kill()
