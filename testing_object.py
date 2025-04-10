@@ -16,15 +16,15 @@ class Ship(Rotatable, Moving_object):
         self.gravity = Vector2(0, GRAVITATION)
         self.friction = 0.96
 
-    def update(self, dt):
+    def update(self):
         if self.thrust_engaged:
             moving_direction = Vector2(0, -1).rotate(-self.angle)
             moving_speed = SPEED
-            self.velocity += moving_direction * moving_speed * dt
+            self.velocity += moving_direction * moving_speed
         else:
-            self.velocity *= (self.friction ** dt)
+            self.velocity *= self.friction
 
-        self.velocity += self.gravity * dt
+        self.velocity += self.gravity
 
-        self.position += self.velocity * dt
+        self.position += self.velocity
         self.rect.center = self.position

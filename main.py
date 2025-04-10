@@ -45,29 +45,23 @@ if(__name__ == "__main__"):
     while game_running:
         # Limit the framerate
         clock.tick(TARGET_FPS)
-        # Calculate delta time
-        this_frame = time.time()
-        dt = this_frame - prev_frame
-        prev_frame = this_frame
-        keys = pygame.key.get_pressed()
 
+        keys = pygame.key.get_pressed()
         rotation_player_two ,_ = controller.update(keys,pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s) 
         _, thrust_player_two = controller.update(keys,pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s) 
 
-        print("thrust = ", thrust_player_two)
         playerTwo.thrust_engaged = thrust_player_two
 
 
-        playerTwo.angle += rotation_player_two * dt       
-        playerTwo.rotate(rotation_player_two * dt)
+        playerTwo.angle += rotation_player_two       
+        playerTwo.rotate(rotation_player_two)
         
         rotation_player_one ,_ = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
         _, thrust_player_one = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
-        print("thrust = ", thrust_player_one)
         playerOne.thrust_engaged = thrust_player_one
 
-        playerOne.angle += rotation_player_one * dt       
-        playerOne.rotate(rotation_player_one * dt)
+        playerOne.angle += rotation_player_one       
+        playerOne.rotate(rotation_player_one)
 
         if keys[pygame.K_RETURN]:
             player_one_shooting.fire(playerOne.position, playerOne.angle)
@@ -85,8 +79,7 @@ if(__name__ == "__main__"):
                 bullet.kill()
                 PLAYER_ONE_SCORE = PLAYER_ONE_SCORE +1
         
-        if(playerTwoCol.checkCollision(OBSTACLE_RECT)):
-            print("colliding with obstacle")
+        
 
         playerOneCol = collision(playerOne.rect)
         for bullet in player_two_shooting.bullets:
@@ -107,7 +100,7 @@ if(__name__ == "__main__"):
         pygame.draw.rect(screen, (0, 255, 0), playerTwo.rect, 2)
         pygame.display.update()
 
-        players.update(dt)
+        players.update()
 
 
 
