@@ -4,6 +4,7 @@ import time
 from testing_object import ship
 from player_controller import controller
 from collision_detection import collision
+from player_shoot import shoot
 from pygame import Vector2
 
 # Justering av hastighet og fps, skal flyttes til config #
@@ -40,14 +41,24 @@ if(__name__ == "__main__"):
     players = pygame.sprite.Group()
     players.add(playerOne)
     players.add(playerTwo)
+    player_shooting = shoot()
 # -------------------------- GAME LOOP -------------------------- #    
     while game_running:
         # Limit the framerate
         clock.tick(TARGET_FPS)
 
+        keys = pygame.key.get_pressed()
+        rotation_delta = controller.update(keys) 
+        playerOne.angle += rotation_delta        
+        playerOne.rotate(rotation_delta)
 
+        if keys[pygame.K_SPACE]:
+            player_shooting.fire(playerOne.position, playerOne.angle)
+
+        player_shooting.update()
 
         screen.blit(myBackground, (0, 1))
+        player_shooting.draw(screen)
         players.draw(screen)
         pygame.display.update()
 
