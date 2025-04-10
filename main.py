@@ -2,6 +2,7 @@
 import pygame
 import time
 import config
+
 from testing_object import Ship
 from player_controller import controller
 from collision_detection import collision
@@ -78,6 +79,7 @@ if(__name__ == "__main__"):
         clamp_to_screen(playerOne)
         clamp_to_screen(playerTwo)
         # Limit the framerate
+
         clock.tick(config.TARGET_FPS)
         # Calculate delta time
         this_frame = time.time()
@@ -91,6 +93,7 @@ if(__name__ == "__main__"):
 
 
 
+        keys = pygame.key.get_pressed()
         rotation_player_two ,_ = controller.update(keys,pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s) 
         _, thrust_player_two = controller.update(keys,pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s) 
 
@@ -104,7 +107,7 @@ if(__name__ == "__main__"):
         _, thrust_player_one = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
         playerOne.thrust_engaged = thrust_player_one
 
-        playerOne.angle += rotation_player_one        
+        playerOne.angle += rotation_player_one       
         playerOne.rotate(rotation_player_one)
 
         if keys[pygame.K_RETURN]:
@@ -126,6 +129,7 @@ if(__name__ == "__main__"):
                 print("test")
                 bullet.kill()
                 PLAYER_ONE_SCORE = PLAYER_ONE_SCORE +1
+
             for obstacle in obstaclesGroup:
                 if obstacle.col.checkCollision(bullet.rect):
                     bullet.kill()
@@ -139,6 +143,7 @@ if(__name__ == "__main__"):
                     playerTwo.thrust_engaged = False
 
         playerOneCol = collision(playerOne.collision_rect)
+
         for bullet in player_two_shooting.bullets:
             
             if playerOneCol.checkCollision(bullet.rect):
@@ -171,6 +176,9 @@ if(__name__ == "__main__"):
         screen.blit(score_text_playerTwo, (750, 10))
         # pygame.draw.rect(screen, (0, 255, 0), playerTwo.rect, 2)
         pygame.display.update()
+
+
+        players.update()
 
 
 
