@@ -17,7 +17,6 @@ class Ship(Rotatable, Moving_object):
         self.gravity = Vector2(0, GRAVITATION)
         self.friction = 0.96
 
-
         self.collision_rect = pygame.Rect(0, 0, 60, 60) 
         self.collision_rect.center = self.position
 
@@ -34,6 +33,9 @@ class Ship(Rotatable, Moving_object):
 
         self.position += self.velocity * dt
         self.rect.center = self.position
+
+        self.collision_rect.center = self.position 
+
 
         self.velocity += self.gravity
         self.rect.center = self.position

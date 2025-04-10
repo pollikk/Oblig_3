@@ -2,7 +2,6 @@
 import pygame
 import time
 
-
 import config
 
 from testing_object import Ship
@@ -95,6 +94,7 @@ if(__name__ == "__main__"):
 
 
 
+
         keys = pygame.key.get_pressed()
         rotation_player_two ,_ = controller.update(keys,pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s) 
         _, thrust_player_two = controller.update(keys,pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s) 
@@ -180,6 +180,7 @@ if(__name__ == "__main__"):
         screen.blit(score_text_playerTwo, (750, 10))
         # pygame.draw.rect(screen, (0, 255, 0), playerTwo.rect, 2)
         pygame.display.update()
+
 
 
         players.update()
