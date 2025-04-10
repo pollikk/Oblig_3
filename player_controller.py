@@ -1,15 +1,15 @@
 import pygame
 
 class controller():
-    def update(keys):
+    def update(keys, left, right, up, down):
         rotation = 0
-        if keys[pygame.K_LEFT]:
+        if keys[left]:
             rotation = 2
-        elif keys[pygame.K_RIGHT]:
+        elif keys[right]:
             rotation = -2
-        if keys[pygame.K_UP]:
+        if keys[up]:
             print("test")
-        if keys[pygame.K_DOWN]:
+        if keys[down]:
             print("test")
 
         return rotation
