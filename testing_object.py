@@ -20,17 +20,17 @@ class Ship(Rotatable, Moving_object):
         self.collision_rect = pygame.Rect(0, 0, 60, 60) 
         self.collision_rect.center = self.position
 
-    def update(self):
+    def update(self,dt):
         if self.thrust_engaged and self.fuel >= 0:
             moving_direction = Vector2(0, -1).rotate(-self.angle)
             moving_speed = SPEED
-            self.velocity += moving_direction * moving_speed
-            self.fuel -= 1
+            self.velocity += moving_direction * moving_speed * dt
+            self.fuel -= 20 *dt
         else:
-            self.velocity *= self.friction
+            self.velocity *= self.friction ** dt
 
-        self.velocity += self.gravity
-        self.position += self.velocity
+        self.velocity += self.gravity *dt
+        self.position += self.velocity *dt
         self.rect.center = self.position
         self.collision_rect.center = self.position 
 

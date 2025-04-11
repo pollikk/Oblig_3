@@ -1,13 +1,19 @@
 import pygame
 from bullet import bullet 
+import config
 
 class shoot:
     def __init__(self):
         self.bullets = pygame.sprite.Group()
+        self.fire_rate = config.FIRE_RATE
+        self.last_shot_time = config.FIRE_RATE
 
     def fire(self, position, angle):
-        new_bullet = bullet(position, angle)
-        self.bullets.add(new_bullet)
+        if(self.last_shot_time >= self.fire_rate):
+            new_bullet = bullet(position, angle)
+            self.bullets.add(new_bullet)
+            self.last_shot_time = 0
+            print("time since last shot = ", self.last_shot_time)
 
     def update(self):
         self.bullets.update()

@@ -105,8 +105,8 @@ if(__name__ == "__main__"):
         playerTwo.thrust_engaged = thrust_player_two
 
 
-        playerTwo.angle += rotation_player_two * dt       
-        playerTwo.rotate(rotation_player_two * dt)
+        playerTwo.angle += rotation_player_two * config.ROTATION_SPEED * dt       
+        playerTwo.rotate(rotation_player_two * config.ROTATION_SPEED * dt)
         
         rotation_player_one ,_ = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
         _, thrust_player_one = controller.update(keys,pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN) 
@@ -127,7 +127,6 @@ if(__name__ == "__main__"):
         player_one_shooting.update()
         player_two_shooting.update()
         players.update(dt)
-
 
 
         playerTwoCol = collision(playerTwo.collision_rect)
@@ -186,15 +185,14 @@ if(__name__ == "__main__"):
         screen.blit(score_text_playerTwo, (750, 10))
 
 
-        fuel_text_playerOne = font.render(f"Player One Fuel: {playerOne.fuel/10}", True, (255, 255, 255))
-        fuel_text_playerTwo = font.render(f"Player Two Fuel: {playerTwo.fuel/10}", True, (255, 255, 255))
+        fuel_text_playerOne = font.render(f"Player One Fuel: {int(playerOne.fuel / 10)}", True, (255, 255, 255))
+        fuel_text_playerTwo = font.render(f"Player Two Fuel: {int(playerTwo.fuel/10)}", True, (255, 255, 255))
         screen.blit(fuel_text_playerOne, (10, 40))
         screen.blit(fuel_text_playerTwo, (750, 40))
 
         pygame.draw.rect(screen, (0, 255, 0), playerTwo.rect, 2)
         pygame.display.update()
 
-        players.update()
 
 
 
