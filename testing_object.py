@@ -34,3 +34,13 @@ class Ship(Rotatable, Moving_object):
         self.rect.center = self.position
         self.collision_rect.center = self.position 
 
+    def respawn(self,respawn):
+        self.position = respawn
+        self.velocity = pygame.Vector2(0, 0)
+        self.rect = self.image.get_rect(center=self.position)
+        self.gravity = Vector2(0, GRAVITATION)
+        self.friction = 0.96
+        self.fuel = 1000
+        self.collision_rect = pygame.Rect(0, 0, 60, 60) 
+        self.collision_rect.center = self.position
+        self.thrust_engaged = False
