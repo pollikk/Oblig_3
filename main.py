@@ -35,6 +35,8 @@ game_running = True
 screen = pygame.display.set_mode((config.SCREEN_X, config.SCREEN_Y))
 myBackground = pygame.image.load(BACKGROUND_IMG)
 
+
+# -------------- FRA GPT HUSK Å REFERERE ----------------- #
 def clamp_to_screen(player):
     hit_edge = False
 
