@@ -15,7 +15,7 @@ class shoot:
             self.last_shot_time = 0
 
     def update(self):
-        self.last_shot_time = self.last_shot_time + config.FIRE_RATE / 15
+        self.last_shot_time = self.last_shot_time + config.FIRE_RATE / 15 
         self.bullets.update()
 
     def draw(self, surface):
