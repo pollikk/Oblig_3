@@ -13,9 +13,9 @@ class shoot:
             new_bullet = bullet(position, angle)
             self.bullets.add(new_bullet)
             self.last_shot_time = 0
-            print("time since last shot = ", self.last_shot_time)
 
     def update(self):
+        self.last_shot_time = self.last_shot_time + config.FIRE_RATE / 15
         self.bullets.update()
 
     def draw(self, surface):
