@@ -2,7 +2,8 @@ import pygame
 from pygame import Vector2
 from rotatable import Rotatable
 from moving_object import Moving_object
-from config import PLAYER_SIZE, SPEED, GRAVITATION
+from config import PLAYER_SIZE, SPEED, GRAVITATION, MAX_FUEL
+
 
 class Ship(Rotatable, Moving_object):
     def __init__(self, image, position):
@@ -16,7 +17,7 @@ class Ship(Rotatable, Moving_object):
         self.thrust_engaged = False
         self.gravity = Vector2(0, GRAVITATION)
         self.friction = 0.96
-        self.fuel = 1000
+        self.fuel = MAX_FUEL
         self.collision_rect = pygame.Rect(0, 0, 60, 60) 
         self.collision_rect.center = self.position
 
@@ -40,7 +41,7 @@ class Ship(Rotatable, Moving_object):
         self.rect = self.image.get_rect(center=self.position)
         self.gravity = Vector2(0, GRAVITATION)
         self.friction = 0.96
-        self.fuel = 1000
+        self.fuel = MAX_FUEL
         self.collision_rect = pygame.Rect(0, 0, 60, 60) 
         self.collision_rect.center = self.position
         self.thrust_engaged = False
