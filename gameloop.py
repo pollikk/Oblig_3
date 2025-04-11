@@ -1,3 +1,4 @@
+''' Tarje Carlsen, Tristan Natvig '''
 
 import pygame
 import time
@@ -5,7 +6,7 @@ import config
 from player_ship import Ship
 from player_controller import controller
 from collision_detection import collision
-from drawObstacles import obstacles
+from makeObstacles import obstacles
 from player_shoot import shoot
 import clamp
 
@@ -21,7 +22,29 @@ myBackground = pygame.image.load(config.BACKGROUND_IMG)
 
 
 class Game():
+        ''' 
+        # Game
+        Imports,
+        Game declarations,
+        Game initializations,
+        Game loop
+        # Imports
+        imports the necessary files needed to run the game
+
+        # Game declarations
+        Starts the pygame with pygame init, sets framerate, sets background and sets the gamerunning variable to True
+
+        # Game initializations
+        initializes the objects for the game such as players, obstacles and landing pads
+
+        # Game loop
+        Starts with making keypresses for wasd, and arrows keys for each player. Checks for keypresses and responding with either
+        movement or shooting. The objects for obstacles and bullets are iterated through to check if its colliding with either players
+        other obstacles or other bullets. The landing pads are checked for collision with the player, and if this is true the fuel for the
+        player is refueld to full. At the end of the file alle objects are drawn to the screen aswell as the score and fuel for each player
+        '''
     # ----------------- OBJECT INITIALIZATIONS -------------------- #
+
         players = pygame.sprite.Group()
         obstaclesGroup = pygame.sprite.Group()
         landingpadGroup = pygame.sprite.Group()
@@ -32,8 +55,6 @@ class Game():
         obstacle_two = obstacles(*config.obstacleTwo_X_Y, *config.obstacleTwo_size, *config.obstacleTwo_rgb)
         landingpad_one = obstacles(*config.landingpadOne_X_Y, *config.landingpadOne_size, *config.landingpadOne_rgb)
         landingpad_two = obstacles(*config.landingpadTwo_X_Y, *config.landingpadTwo_size, *config.landingpadTwo_rgb)
-
-
 
         players.add(playerOne)
         players.add(playerTwo)
