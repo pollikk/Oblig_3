@@ -150,6 +150,10 @@ if(__name__ == "__main__"):
                     playerTwo.rect.center = previous_rect_center_playerTwo
                     playerTwo.velocity = pygame.Vector2(0, 0)
                     playerTwo.thrust_engaged = False
+                else:
+                    playerTwo.position = previous_position_playerTwo
+                    playerTwo.rect.center = previous_rect_center_playerTwo
+                    playerTwo.velocity = pygame.Vector2(0, 0) 
 
         playerOneCol = collision(playerOne.collision_rect)
 
@@ -171,6 +175,10 @@ if(__name__ == "__main__"):
                     playerOne.rect.center = previous_rect_center_playerOne
                     playerOne.velocity = pygame.Vector2(0, 0)
                     playerOne.thrust_engaged = False
+                else:
+                    playerOne.position = previous_position_playerOne
+                    playerOne.rect.center = previous_rect_center_playerOne
+                    playerOne.velocity = pygame.Vector2(0, 0) 
 
 
         screen.blit(myBackground, (0, 1))
