@@ -5,11 +5,16 @@ BULLET_IMG = "images/Triangle.png"
 BULLET_SIZE = 10, 10
 BULLET_SPEED = 10
 
+
 class bullet(pygame.sprite.Sprite):
+    bullet_image = None
+
     def __init__(self, position, angle):
         super().__init__()
-        self.original_image = pygame.transform.scale(pygame.image.load(BULLET_IMG).convert_alpha(), BULLET_SIZE)
-        self.image = pygame.transform.rotate(self.original_image, angle)
+        if bullet.bullet_image is None:
+            self.original_image = pygame.transform.scale(pygame.image.load(BULLET_IMG).convert_alpha(), BULLET_SIZE)
+            bullet.bullet_image = pygame.transform.rotate(self.original_image, angle)
+        self.image = bullet.bullet_image
         self.position = Vector2(position)
         self.rect = self.image.get_rect(center=self.position)
         self.angle = angle
