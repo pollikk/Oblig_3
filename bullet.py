@@ -1,14 +1,18 @@
+''' Tarje Carlsen, Tristan Natvig '''
+
 import pygame
 from pygame import Vector2
-
-BULLET_IMG = "images/Triangle.png"
-BULLET_SIZE = 10, 10
-BULLET_SPEED = 10
-
+from config import BULLET_IMG, BULLET_SIZE, BULLET_SPEED, SCREEN_X, SCREEN_Y
 
 class bullet(pygame.sprite.Sprite):
+    '''
+    class for creating a bullet object. inheritence from pygames sprite sprite so that it can be grouped and drawn using pygame.group.update
+    and pygame.group.draw methods.
+    The class sets the image, position and angle of the bullet. Then sets up a rectangle hit box using the bullets center position.
+    The bullets velocity is set using the direction its facing and a static bullet speed from config file. In the update method the 
+    bullet is deleted if it goes outside the screen.
+    '''
     bullet_image = None
-
     def __init__(self, position, angle):
         super().__init__()
         if bullet.bullet_image is None:
@@ -26,5 +30,5 @@ class bullet(pygame.sprite.Sprite):
         self.position += self.velocity
         self.rect.center = self.position
 
-        if not (0 <= self.rect.x <= 1024 and 0 <= self.rect.y <= 768):
+        if not (0 <= self.rect.x <= SCREEN_X and 0 <= self.rect.y <= SCREEN_Y):
             self.kill()

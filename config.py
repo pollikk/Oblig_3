@@ -1,7 +1,8 @@
+'''Tarje Carlsen, Tristan Natvig '''
+'''Configurations for the game loop'''
 # ----------- SCREEN CONFIGS ----------- 
 SCREEN_X = 1024
 SCREEN_Y = 768
-
 
 # ----------- PLAYER CONFIGS ----------- 
 PLAYER_SIZE = (75, 75)
@@ -22,6 +23,11 @@ SPEED = 300
 STARTING_ANGLE = 0
 FIRE_RATE = 0.5
 MAX_FUEL = 1000
+
+# ----------- BULLET CONFIGS ----------- 
+BULLET_IMG = "images/Triangle.png"
+BULLET_SIZE = 10, 10
+BULLET_SPEED = 10
 
 # ----------- OBSTACLE CONFIGS ----------- 
 # Obstacle cordinates (x,y)

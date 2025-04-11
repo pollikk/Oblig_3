@@ -1,3 +1,5 @@
+''' Tarje Carlsen, Tristan Natvig '''
+
 import pygame
 from pygame import Vector2
 from rotatable import Rotatable
@@ -6,6 +8,10 @@ from config import PLAYER_SIZE, SPEED, GRAVITATION, MAX_FUEL
 
 
 class Ship(Rotatable, Moving_object):
+    '''Sets up a ship object with inheritence from Rotatable class and Moving_objects class. Sets the default values of a new ship object.
+    Sets up a static size hit box for the ship objects so that the size doesnt increase or decrease depending on rotation. In the update 
+    method the velocity of the ship is changed based on if the player is thrusting or not. In the respawn method the players position 
+    is reset to the respawn position'''
     def __init__(self, image, position):
         super().__init__()
         size = PLAYER_SIZE

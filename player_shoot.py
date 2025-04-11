@@ -1,8 +1,14 @@
+''' Tarje Carlsen, Tristan Natvig '''
+
 import pygame
 from bullet import bullet 
 import config
 
 class shoot:
+    '''Sets up a group of bullets using the pygame.sprite.group and bullet class and sets a fire rate in the init method. In the 
+    fire method if the time since it last shot is gone past the time of fire rate it will create a new bullet and reset the time since last shot.
+    in the update method the time will get incremented so that its updated for the next time fire key is pressed. in the draw method the 
+    bullets are drawn to the screen.'''
     def __init__(self):
         self.bullets = pygame.sprite.Group()
         self.fire_rate = config.FIRE_RATE
