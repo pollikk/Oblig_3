@@ -64,8 +64,8 @@ def clamp_to_screen(player):
 
 
 if(__name__ == "__main__"):
-    playerOne = Ship(PLAYER_ONE_IMG, config.PLAYER_ONE_POSITION)
-    playerTwo = Ship(PLAYER_TWO_IMG, config.PLAYER_TWO_POSITION)
+    playerOne = Ship(PLAYER_ONE_IMG, config.PLAYER_ONE_RESPAWN)
+    playerTwo = Ship(PLAYER_TWO_IMG, config.PLAYER_TWO_RESPAWN)
     obstaclesGroup = pygame.sprite.Group()
     obstacle_one = obstacles(*config.obstacleOne_X_Y, *config.obstacleOne_size, *config.obstacleOne_rgb)
     obstacle_two = obstacles(*config.obstacleTwo_X_Y, *config.obstacleTwo_size, *config.obstacleTwo_rgb)
@@ -136,6 +136,10 @@ if(__name__ == "__main__"):
             if playerTwoCol.checkCollision(bullet.rect):
                 print("test")
                 bullet.kill()
+                playerOne.respawn(config.PLAYER_ONE_RESPAWN)
+                playerTwo.respawn(config.PLAYER_TWO_RESPAWN)
+                playerOne.angle = 0
+                playerTwo.angle = 0
                 PLAYER_ONE_SCORE = PLAYER_ONE_SCORE +1
 
 
@@ -161,10 +165,14 @@ if(__name__ == "__main__"):
             
             if playerOneCol.checkCollision(bullet.rect):
                 bullet.kill()
+                playerOne.respawn(config.PLAYER_ONE_RESPAWN)
+                playerTwo.respawn(config.PLAYER_TWO_RESPAWN)
                 PLAYER_TWO_SCORE = PLAYER_TWO_SCORE +1
             
             for obstacle in obstaclesGroup:
                 if obstacle.col.checkCollision(bullet.rect):
+                    playerOne.angle = 0
+                    playerTwo.angle = 0
                     bullet.kill()
 
 
