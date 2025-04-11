@@ -8,10 +8,14 @@ PLAYER_SIZE = (75, 75)
 PLAYER_ONE_RESPAWN = (350, 200)
 PLAYER_TWO_RESPAWN = (800, 200)
 ROTATION_SPEED = 50
-
+PLAYER_TWO_IMG = "images/Triangle.png"
+PLAYER_ONE_IMG = "images/Triangle_red.png"
+BACKGROUND_IMG = "images/green_background.png" 
 # ----------- GAME CONFIGS ----------- 
 GRAVITATION = 100
 TARGET_FPS = 60
+PLAYER_ONE_SCORE = 0
+PLAYER_TWO_SCORE = 0
 
 # ----------- SHIP CONFIGS ----------- 
 SPEED = 300
