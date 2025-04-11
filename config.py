@@ -34,3 +34,14 @@ obstacleTwo_rgb = 250, 50, 100
 #Obstacle size (width, height)
 obstacleOne_size = 60, 400
 obstacleTwo_size = 30, 700
+
+# ----------- LANDINGPAD CONFIGS -----------
+# Landingpad cordinates (x,y)
+landingpadOne_X_Y = (250, 718) 
+landingpadTwo_X_Y = (700, 718)
+# Landingpad colors (red, green, blue)
+landingpadOne_rgb = (255, 20, 20)
+landingpadTwo_rgb = (20, 20, 255)
+# Landingpad size (width, height)
+landingpadOne_size = (200, 50)
+landingpadTwo_size = (200, 50)
