@@ -70,6 +70,13 @@ if(__name__ == "__main__"):
     obstacle_one = obstacles(*config.obstacleOne_X_Y, *config.obstacleOne_size, *config.obstacleOne_rgb)
     obstacle_two = obstacles(*config.obstacleTwo_X_Y, *config.obstacleTwo_size, *config.obstacleTwo_rgb)
     
+    landingpadGroup = pygame.sprite.Group()
+    landingpad_one = obstacles(*config.landingpadOne_X_Y, *config.landingpadOne_size, *config.landingpadOne_rgb)
+    landingpad_two = obstacles(*config.landingpadTwo_X_Y, *config.landingpadTwo_size, *config.landingpadTwo_rgb)
+    
+    landingpadGroup.add(landingpad_one)
+    landingpadGroup.add(landingpad_two)
+
     obstaclesGroup.add(obstacle_one)
     obstaclesGroup.add(obstacle_two)
     players = pygame.sprite.Group()
@@ -188,13 +195,22 @@ if(__name__ == "__main__"):
                     playerOne.rect.center = previous_rect_center_playerOne
                     playerOne.velocity = pygame.Vector2(0, 0) 
 
+        for landingpad in landingpadGroup:
+            if(playerOneCol.checkCollision(landingpad.rect)):
+                playerOne.fuel = 1000
+
+        for landingpad in landingpadGroup:
+            if(playerTwoCol.checkCollision(landingpad.rect)):
+                playerTwo.fuel = 1000
+
 
         screen.blit(myBackground, (0, 1))
         player_one_shooting.draw(screen)
         player_two_shooting.draw(screen)
-        players.draw(screen)
 
         obstaclesGroup.draw(screen)
+        landingpadGroup.draw(screen)
+        players.draw(screen)
         # pygame.draw.rect(screen, (0, 255, 0), playerTwo.collision_rect, 2)
 
         score_text_playerOne = font.render(f"Player One Score: {PLAYER_ONE_SCORE}", True, (255, 255, 255))
