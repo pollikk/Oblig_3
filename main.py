@@ -2,7 +2,7 @@
 import pygame
 import time
 import config
-from testing_object import Ship
+from player_ship import Ship
 from player_controller import controller
 from collision_detection import collision
 from drawObstacles import obstacles
@@ -106,23 +106,23 @@ if(__name__ == "__main__"):
                 playerTwo.angle = 0
                 config.PLAYER_ONE_SCORE = config.PLAYER_ONE_SCORE +1
 
+            for obstacle in obstaclesGroup:
+                if obstacle.col.checkCollision(bullet.rect):
+                    bullet.kill()
+
         for bullet in player_two_shooting.bullets:
-            
             if playerOneCol.checkCollision(bullet.rect):
                 bullet.kill()
                 playerOne.respawn(config.PLAYER_ONE_RESPAWN)
                 playerTwo.respawn(config.PLAYER_TWO_RESPAWN)
+                playerOne.angle = 0
+                playerTwo.angle = 0
                 config.PLAYER_TWO_SCORE = config.PLAYER_TWO_SCORE +1
             
             for obstacle in obstaclesGroup:
                 if obstacle.col.checkCollision(bullet.rect):
-                    playerOne.angle = 0
-                    playerTwo.angle = 0
                     bullet.kill()
 
-            for obstacle in obstaclesGroup:
-                if obstacle.col.checkCollision(bullet.rect):
-                    bullet.kill()
 
 # -------- obstacle collision -------- #
 

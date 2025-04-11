@@ -21,6 +21,7 @@ PLAYER_TWO_SCORE = 0
 SPEED = 300
 STARTING_ANGLE = 0
 FIRE_RATE = 0.5
+MAX_FUEL = 1000
 
 # ----------- OBSTACLE CONFIGS ----------- 
 # Obstacle cordinates (x,y)
